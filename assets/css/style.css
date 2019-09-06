@@ -1,8 +1,3 @@
-/*
-Author: Bootstrap Themes
-Author URI: http://bootstrapthemes.co
-*/
-
 /*==========================================
  01.  PREDIFINEED (FROM 1 TO 780 )
  02.  PRELOADER - LINE NO 786
@@ -1014,8 +1009,23 @@ textarea::-ms-input-placeholder {
 Nav Menu style
 ==================*/
 
-.navbar-brand {
-    padding: 25px 15px;
+a.navbar-brand {
+    padding-top: 12px;
+}
+
+@media screen and (max-width: 500px)
+
+/* Mobile */
+    {
+    a.navbar-brand {
+        padding-top: 3px;
+        height: 50px;
+    }
+
+    img.nav-image {
+        height: 50px;
+        width: 50px;
+    }
 }
 
 .navbar-brand>img {
@@ -1160,6 +1170,9 @@ Featured section style
 .business {
     background-size: cover;
     position: relative;
+    border-bottom-style: solid;
+    border-top-style: solid;
+    border-width: 4px;
 }
 
 .business_overlay {
@@ -1317,6 +1330,10 @@ work Section style
 .main_team .team_socail .team_socail h5 {
     font-size: 18px;
     font-weight: 800;
+}
+
+.team_socail {
+    padding-bottom: 25px;
 }
 
 .divider {
