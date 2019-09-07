@@ -97,12 +97,9 @@ jQuery(document).ready(function($) {
   });
 
   // Swipe Option for Bootstrap Carousel
-  $("#myCarousel").swiperight(function() {
-    $(this).carousel("prev");
-  });
-
-  $("#myCarousel").swipeleft(function() {
-    $(this).carousel("next");
+  $(".carousel").carousel({
+    interval: 10000,
+    touch: true
   });
 
   //End
