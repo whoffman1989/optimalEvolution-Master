@@ -96,10 +96,8 @@ jQuery(document).ready(function($) {
       );
   });
 
-  // Swipe Option for Bootstrap Carousel
   $(".carousel").carousel({
-    interval: 10000,
-    touch: true
+    interval: 10000
   });
 
   //End

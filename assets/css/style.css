@@ -1013,19 +1013,8 @@ a.navbar-brand {
     padding-top: 12px;
 }
 
-@media screen and (max-width: 500px)
-
-/* Mobile */
-    {
-    a.navbar-brand {
-        padding-top: 3px;
-        height: 50px;
-    }
-
-    img.nav-image {
-        height: 50px;
-        width: 50px;
-    }
+.mobile-service {
+    display: none;
 }
 
 .navbar-brand>img {
@@ -1599,4 +1588,25 @@ work Section style
 .main_footer i {
     padding: 0px 5px;
     color: #ff0000;
+}
+
+@media screen and (max-width: 776px) {
+
+    a.navbar-brand {
+        padding-top: 3px;
+        height: 50px;
+    }
+
+    img.nav-image {
+        height: 50px;
+        width: 50px;
+    }
+
+    .desktop-service {
+        display: none;
+    }
+
+    .mobile-service {
+        display: flex;
+    }
 }
