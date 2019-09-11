@@ -252,7 +252,7 @@ if ($_POST['submit']) {
                 <div class="col-md-12">
                     <p class="wow fadeInRight" data-wow-duration="1s">
                         Developed by
-                        <a target="_blank" href="http://www.hoffmediacollective.com">The Hoffmedia Collective</a>
+                        <a target="_blank" href="https://www.hoffmediacollective.com">The Hoffmedia Collective</a>
                         2019. All Rights Reserved
                     </p>
                 </div>
