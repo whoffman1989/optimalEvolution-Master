@@ -21,7 +21,7 @@ if ($_POST['submit']) {
   if ($error) {
     $result='<div class="alert alert-danger" role="alert"><strong>Oops, there is an error.</strong> Please correct the following: '.$error.'</div>';
   } else {
-    mail("whoffman2019@gmail.com", "Contact Message from: ".$_POST['name'],"
+    mail("nathan@optimalevolution.co", "Contact Message from: ".$_POST['name'],"
     Optimal Evolution,
       You have recieved a message from: 
         ".$_POST['name']."
