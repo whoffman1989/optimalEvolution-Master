@@ -1,3 +1,46 @@
+<?php
+if ($_POST['submit']) {
+  if (!$_POST['name']) {
+    $error="<br/>- Please enter your name. ";
+  }
+  if (!$_POST['email']) {
+    $error.="<br/>- Please enter your email. ";
+  }
+  if (!$_POST['service']) {
+    $error.="<br/>- Please select a service. ";
+  }
+  if (!$_POST['sub_length']) {
+    $error.="<br/>- Please select a subscription length. ";
+  }
+  if (!$_POST['message']) {
+    $error.="<br/>- Please enter a message. ";
+  }
+  if (!$_POST['check']) {
+    $error.="<br/>- Please confirm that you are human. ";
+  }
+  if ($error) {
+    $result='<div class="alert alert-danger" role="alert"><strong>Oops, there is an error.</strong> Please correct the following: '.$error.'</div>';
+  } else {
+    mail("whoffman2019@gmail.com", "Contact Message from: ".$_POST['name'],"
+    Optimal Evolution,
+      You have recieved a message from: 
+        ".$_POST['name']."
+      Email: 
+        ".$_POST['email']."
+      Service Chosen:
+        ".$_POST['service']."
+      Subscription Length: 
+        ".$_POST['sub_length']."
+      Message: 
+        ".$_POST['message']);
+    {
+      $_POST = array();
+      $result='<div class="alert alert-success" role="alert"><strong>Thank you</strong>, We will be in touch shortly.</div>';
+    }
+  }
+}
+?>
+
 <!doctype html>
 
 <html class="no-js" lang="en">
@@ -5,7 +48,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Optimal Evolution - Team Training</title>
+    <title>Optimal Evolution - Contact/Sign Up!</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
@@ -67,7 +110,7 @@
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                         <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand" href="#home">
+                    <a class="navbar-brand" href="../index.html">
                         <img class="nav-image" src="../assets/images/optimalevolutionnavbar.png"
                             alt="optimal-evolution-logo" />
                     </a>
@@ -81,53 +124,65 @@
                 </div>
             </div>
         </nav>
-        <!-- Team Training Section -->
-        <div class="business bg-blue roomy-70">
-            <div class="business_overlay"></div>
+        <!-- Contact Form Section -->
+
+        <div class="business bg-white roomy-100">
             <div class="container">
                 <div class="row">
-                    <div class="main_business xs-text-center">
-                        <div class="col-md-5">
-                            <div class="business_item sm-m-top-50">
-                                <h2 class="text-uppercase text-white">Team Training</h2>
-                                <p class="m-top-20 text-white">Team training is for athletes that just want to train and
-                                    compete with the team. Team athletes will work with coaches to develop a customized
-                                    training program and have the opportunity to train and compete alongside all the
-                                    other dedicated OE athletes.
-                                </p>
+                    <div class="col-md-12">
+
+                        <?php echo $result;?>
+
+                        <form class="form-web" method="post" role="form">
+                            <h2>Sign Up / Contact Form</h2>
+                            <h3>Full Name:</h3> 
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control" placeholder="Your Name"
+                                    value="<?php echo $_POST['name']; ?>">
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <ul class="text-white">
-                                <br>
-                                <li><i class="fa  fa-arrow-circle-right"></i> Initial movement screening/assessment</li>
-                                <br>
-                                <li><i class="fa  fa-arrow-circle-right"></i> Customized training program</li>
-                                <br>
-                                <li><i class="fa  fa-arrow-circle-right"></i> Unlimited access to team training sessions
-                                </li>
-                                <br>
-                                <li><i class="fa  fa-arrow-circle-right"></i> Unlimited access to video analysis</li>
-                                <br>
-                                <li><i class="fa  fa-arrow-circle-right"></i> Daily performance checklist</li>
-                                <br>
-                                <br>
-                            </ul>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="business_item">
-                                <div class="business_img">
-                                    <h2 class="text-uppercase text-white">Pricing</h2>
-                                    <br>
-                                    <ul class="text-white">
-                                        <li><i class="fas  fa-angle-right"></i> Month to Month: $100/month</li>
-                                    </ul>
-                                    <div class="business_btn m-top-50">
-                                        <a href="../php/php_index.php" class="btn btn-default m-top-20">Sign Up!</a>
-                                    </div>
-                                </div>
+                            <br>
+                            <h3>Email:</h3>
+                            <div class="form-group">
+                                <input type="email" name="email" class="form-control" placeholder="Your Email"
+                                    value="<?php echo $_POST['email']; ?>">
                             </div>
-                        </div>
+                            <br>
+                            <h3>Service:</h3>
+                            <div class="dropdown">
+                                <select class="select" name="service">
+                                    <option value="">Choose a Service...</option>
+                                    <option value="Holistic Lifestyle Coaching">Holistic Lifestyle Coaching</option>
+                                    <option value="Performance Coaching">Performance Coaching</option>
+                                    <option value="Distance Performance Coaching">Distance Performance Coaching</option>
+                                    <option value="Team Training">Team Training</option>
+                                    <option value="Consultationi">Consultation</option>
+                                </select>
+                            </div>
+                            <br>
+                            <h3>Service Length:</h3>
+                            <div class="dropdown">
+                                <select class="select" name="sub_length">
+                                    <option value="">Length of Service...</option>
+                                    <option value="12 Months">12 Months</option>
+                                    <option value="6 Months">6 Months</option>
+                                    <option value="3 Months">3 Months</option>
+                                    <option value="1 Month">Consultation</option>
+                                </select>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <textarea name="message" rows="7" class="form-control"
+                                    placeholder="Your Message..."><?php echo $_POST['message'];?></textarea>
+                            </div>
+                            <div>
+                                <label>
+                                    <input type="checkbox" name="check"> I am Human 
+                                </label>
+                            </div>
+                            <div align="center">
+                                <input type="submit" name="submit" class="btn btn-secondary" value="Send Message">
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

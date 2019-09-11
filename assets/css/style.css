@@ -1622,4 +1622,24 @@ work Section style
     .business {
         border-style: none;
     }
+
+    .dropdown {
+        border-style: solid;
+        border-width: 2px;
+    }
+}
+
+/* php contact form */
+
+.select {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    border: 1px solid #aaa;
+    border-radius: .5em;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
 }
